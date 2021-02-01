@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
 })
 export class ForgetComponent implements OnInit {
   res = '';
-  reCaptchaKeyPub = "6Lf-AUEaAAAAADEHdQwqbACvV-lpM7nn-m77Yqb1";
+  reCaptchaKeyPub = "PublicKey";
   constructor(private router : Router) { }
 
   ngOnInit(): void {
