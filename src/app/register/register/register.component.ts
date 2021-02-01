@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
 })
 export class RegisterComponent implements OnInit {
 
-  reCaptchaKeyPub = "6Lf-AUEaAAAAADEHdQwqbACvV-lpM7nn-m77Yqb1";
+  reCaptchaKeyPub = "Pub Key";
 
   constructor(private router : Router)  { }
 
