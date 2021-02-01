@@ -1,0 +1,10 @@
+.register-card{
+  margin :20px auto 0px auto;
+  max-width : 50% ;
+  min-width : 100px;
+  text-align: center;
+}
+.full-width{
+  width : 35%;
+  margin-left : 10px;
+}

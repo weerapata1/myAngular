@@ -1,0 +1,38 @@
+<div id="forgetPassword">
+  <div class="content">
+
+    <mat-card class="forget-card">
+      <mat-card-header>
+        <mat-card-title>Forget Password</mat-card-title>
+        <mat-card-subtitle>Subtitle</mat-card-subtitle>
+      </mat-card-header>
+
+      <mat-card-content>
+        <form>
+          <mat-form-field>
+            <mat-label>Enter Your E-mail</mat-label>
+            <input matInput type="email" placeholder="enter your e-mail" autocomplete="off"/>
+          </mat-form-field>
+        </form>
+      </mat-card-content>
+      <mat-card-actions >
+
+        <div>
+          <!--
+            the SITE_KEY is the sitekey from your admin console.
+            use form control for validation
+          -->
+          <re-captcha (resolved)="resolved($event)"
+                      formControlName="recaptchaReactive"
+                      siteKey="{{reCaptchaKeyPub}}">
+          </re-captcha>
+        </div>
+        <button mat-raised-button color="primary" (click)="onContinue()">Continue</button>
+
+      </mat-card-actions>
+      <mat-card-footer>
+        Footer
+      </mat-card-footer>
+    </mat-card>
+  </div>
+</div>
