@@ -8,43 +8,42 @@
       </mat-card-header>
 
       <mat-card-content>
-        <form>
+        <form [formGroup]="regisForm" (ngSubmit)="onRegister()">
           <mat-form-field class="full-width">
             <mat-label>Username</mat-label>
-            <input matInput  placeholder="Username" type="text" />
+            <input matInput  placeholder="Username" type="text" formControlName="username" />
           </mat-form-field>
+<!--          <a *ngIf="regisForm.controls['username'].hasError">555 พิมพ์ใหม่ </a>-->
 
           <mat-form-field class="full-width">
             <mat-label>E-mail</mat-label>
-            <input matInput  placeholder="E-mail" type="email" />
+            <input matInput  placeholder="E-mail" type="email" formControlName="email"/>
           </mat-form-field><br/>
 
           <mat-form-field class="full-width">
             <mat-label>Password</mat-label>
-            <input matInput  placeholder="Password" type="password" />
+            <input matInput  placeholder="Password" type="password" formControlName="password"/>
           </mat-form-field>
 
           <mat-form-field class="full-width">
             <mat-label>Password</mat-label>
-            <input matInput  placeholder="Password" type="password" />
+            <input matInput  placeholder="Password" type="password" formControlName="rePass"/>
           </mat-form-field><br/>
+          <section>
+            <div class="recaptcha">
+              <re-captcha (resolved)="resolved($event)"
+                          formControlName="recaptchaReactive"
+                          siteKey="{{reCaptchaKeyPub}}">
+              </re-captcha>
+            </div>
+          </section>
+          <br/>
+          <button mat-raised-button color="primary" [disabled]="!disabled">Continue</button>
+
         </form>
+
       </mat-card-content>
-      <mat-card-actions >
-
-        <div>
-          <!--
-            the SITE_KEY is the sitekey from your admin console.
-            use form control for validation
-          -->
-          <re-captcha (resolved)="resolved($event)"
-                      formControlName="recaptchaReactive"
-                      siteKey="{{reCaptchaKeyPub}}">
-          </re-captcha>
-        </div>
-        <button mat-raised-button color="primary" (click)="onRegister()">Continue</button>
-
-      </mat-card-actions>
+        <br/>
       <mat-card-footer>
         Footer
       </mat-card-footer>

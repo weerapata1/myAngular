@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, Validators} from '@angular/forms';
+import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
+import {FormBuilder, FormGroup } from '@angular/forms';
 
-
+import {Login} from './login';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -9,16 +10,19 @@ import {FormControl, Validators} from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
 
-//   loginFormControl = new FormControl('', [
-//     Validators.required,
-//     Validators.email,
-//   ]);
-  constructor() { }
+
+  loginForm = this.formBuilder.group({
+              username : [''],
+              password : ['']
+  });
+  constructor(private formBuilder : FormBuilder) { }
 
   ngOnInit(): void {
   }
   onLogin(){
     console.log("this Login");
+    console.log(this.loginForm.value);
   }
+
 
 }
