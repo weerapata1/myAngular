@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule ,ReactiveFormsModule } from '@angular/forms';
+
+import { RecaptchaModule, RecaptchaFormsModule } from 'ng-recaptcha';
 
 import { MaterialModule } from '../material/material.module';
 import { RegisterRoutingModule } from './register-routing.module';
@@ -7,11 +10,18 @@ import { RegisterComponent } from './register/register.component';
 
 
 @NgModule({
-  declarations: [RegisterComponent],
+  declarations: [
+                  RegisterComponent
+  ],
   imports: [
     CommonModule,
     MaterialModule,
-    RegisterRoutingModule
-  ]
+    FormsModule,
+    ReactiveFormsModule,
+    RegisterRoutingModule,
+    RecaptchaModule, RecaptchaFormsModule
+  ],
+  providers: [],
+  bootstrap: [RegisterComponent]
 })
 export class RegisterModule { }

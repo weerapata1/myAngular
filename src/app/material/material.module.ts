@@ -7,7 +7,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatButtonModule } from '@angular/material/button';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatCardModule } from '@angular/material/card';
-import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatCheckboxModule ,MAT_CHECKBOX_DEFAULT_OPTIONS } from '@angular/material/checkbox';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatRippleModule } from '@angular/material/core';
 import { MatDividerModule } from '@angular/material/divider';
@@ -27,14 +27,47 @@ import { MatTableModule } from '@angular/material/table';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTreeModule } from '@angular/material/tree';
-import { RecaptchaModule, RecaptchaFormsModule } from 'ng-recaptcha';
+import {MatRadioModule} from '@angular/material/radio';
+import {A11yModule} from '@angular/cdk/a11y';
+import {ClipboardModule} from '@angular/cdk/clipboard';
+import {DragDropModule} from '@angular/cdk/drag-drop';
+import {ScrollingModule} from '@angular/cdk/scrolling';
+import {CdkStepperModule} from '@angular/cdk/stepper';
+import {CdkTableModule} from '@angular/cdk/table';
+import {MatBadgeModule} from '@angular/material/badge';
+import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
+import {MatStepperModule} from '@angular/material/stepper';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {MatSliderModule} from '@angular/material/slider';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {MatTooltipModule} from '@angular/material/tooltip';
+
 
 const materialModules = [
   CdkTreeModule,
+  MatStepperModule,
+  MatSliderModule,
+  MatGridListModule,
+  MatDialogModule,
+  MatProgressBarModule,
+  MatDatepickerModule,
+  A11yModule,
+  MatBottomSheetModule,
+  MatSlideToggleModule,
+  MatBadgeModule,
+  MatTooltipModule,
+  CdkTableModule,
   MatAutocompleteModule,
+  CdkStepperModule,
   MatButtonModule,
+  ScrollingModule,
   MatCardModule,
+  DragDropModule,
   MatCheckboxModule,
+  ClipboardModule,
   MatChipsModule,
   MatDividerModule,
   MatExpansionModule,
@@ -57,20 +90,21 @@ const materialModules = [
   MatTreeModule,
   OverlayModule,
   PortalModule,
-
-  RecaptchaModule,
-  RecaptchaFormsModule ,
+  MatRadioModule,
 ];
 
 
 @NgModule({
   declarations: [],
   imports: [
-    materialModules
+    ...materialModules
   ],
   exports: [
-    materialModules
-  ]
+    ...materialModules
+  ],
+  providers: [
+      {provide: MAT_CHECKBOX_DEFAULT_OPTIONS, useValue: { clickAction: 'click' }}
+  ],
 
 })
 export class MaterialModule { }
